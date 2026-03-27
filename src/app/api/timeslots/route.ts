@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { FALLBACK_TIMESLOTS } from "@/lib/fallback-data";
 
 export async function GET() {
   try {
@@ -9,7 +10,7 @@ export async function GET() {
       select: { id: true, time: true },
     });
     return NextResponse.json(slots);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch time slots" }, { status: 500 });
+  } catch {
+    return NextResponse.json(FALLBACK_TIMESLOTS);
   }
 }

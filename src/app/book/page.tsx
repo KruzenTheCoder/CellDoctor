@@ -62,9 +62,18 @@ export default function BookPage() {
   });
 
   useEffect(() => {
-    fetch("/api/services").then((r) => r.json()).then(setServices).catch(() => {});
-    fetch("/api/timeslots").then((r) => r.json()).then(setTimeSlots).catch(() => {});
-    fetch("/api/blocked-dates").then((r) => r.json()).then(setBlockedDates).catch(() => {});
+    fetch("/api/services")
+      .then((r) => r.json())
+      .then((data) => Array.isArray(data) ? setServices(data) : setServices([]))
+      .catch(() => {});
+    fetch("/api/timeslots")
+      .then((r) => r.json())
+      .then((data) => Array.isArray(data) ? setTimeSlots(data) : setTimeSlots([]))
+      .catch(() => {});
+    fetch("/api/blocked-dates")
+      .then((r) => r.json())
+      .then((data) => Array.isArray(data) ? setBlockedDates(data) : setBlockedDates([]))
+      .catch(() => {});
   }, []);
 
   useEffect(() => {

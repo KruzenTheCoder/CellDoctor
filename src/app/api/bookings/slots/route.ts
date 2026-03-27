@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       bookedSlots: bookings.map((b) => b.timeSlot),
     });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch booked slots" }, { status: 500 });
+  } catch {
+    return NextResponse.json({ bookedSlots: [] });
   }
 }

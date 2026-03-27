@@ -7,7 +7,7 @@ export async function GET() {
       select: { date: true },
     });
     return NextResponse.json(blocked.map((b) => b.date));
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch blocked dates" }, { status: 500 });
+  } catch {
+    return NextResponse.json([]);
   }
 }

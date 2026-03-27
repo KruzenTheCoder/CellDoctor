@@ -7,34 +7,22 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Thabo M.",
-    text: "Incredible service! My Samsung screen was replaced in under 45 minutes. The online booking made it so easy.",
+    name: "Google Review",
+    text: "Professional and quick service. Had my screen fixed while I waited. Very happy with the result.",
     rating: 5,
-    device: "Samsung Galaxy S24",
+    device: "Screen Repair",
   },
   {
-    name: "Sarah L.",
-    text: "Cell Doctor saved my iPhone after water damage. Professional, fast, and they kept me updated via WhatsApp the whole time.",
+    name: "Google Review",
+    text: "Good prices and honest service. They diagnosed the issue fast and fixed it on the spot.",
     rating: 5,
-    device: "iPhone 15 Pro",
+    device: "Diagnostics & Repair",
   },
   {
-    name: "Ahmed K.",
-    text: "Best repair experience I've ever had. Booked online, walked in, and my phone was fixed while I had coffee. Highly recommend!",
+    name: "Google Review",
+    text: "Battery replacement was done quickly. Phone works perfectly now. Will definitely come back.",
     rating: 5,
-    device: "Huawei P60",
-  },
-  {
-    name: "Lerato N.",
-    text: "The battery replacement was quick and affordable. My phone feels brand new again. Great customer service too.",
-    rating: 5,
-    device: "iPhone 14",
-  },
-  {
-    name: "David P.",
-    text: "Fixed my charging port in 30 minutes. The booking system is smooth and the payment was easy. Will come back for sure.",
-    rating: 5,
-    device: "Xiaomi 14",
+    device: "Battery Replacement",
   },
 ];
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { FALLBACK_SERVICES } from "@/lib/fallback-data";
 
 export async function GET() {
   try {
@@ -16,7 +17,7 @@ export async function GET() {
       },
     });
     return NextResponse.json(services);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch services" }, { status: 500 });
+  } catch {
+    return NextResponse.json(FALLBACK_SERVICES);
   }
 }

@@ -1,0 +1,33 @@
+export const FALLBACK_SERVICES = [
+  { id: "screen-repair", name: "Screen Repair", description: "Cracked or broken screen replacement for all brands", price: 350, duration: 45, icon: "smartphone" },
+  { id: "battery-replacement", name: "Battery Replacement", description: "Restore your phone's battery life to like-new condition", price: 250, duration: 30, icon: "battery" },
+  { id: "charging-port-repair", name: "Charging Port Repair", description: "Fix loose or damaged charging ports quickly", price: 200, duration: 35, icon: "plug" },
+  { id: "water-damage-repair", name: "Water Damage Repair", description: "Expert water damage assessment and repair", price: 400, duration: 120, icon: "droplets" },
+  { id: "speaker-and-mic-repair", name: "Speaker & Mic Repair", description: "Restore clear audio with speaker and mic repairs", price: 200, duration: 35, icon: "volume2" },
+  { id: "camera-repair", name: "Camera Repair", description: "Fix blurry, cracked, or non-functioning cameras", price: 300, duration: 45, icon: "camera" },
+  { id: "software-issues", name: "Software Issues", description: "Resolve crashes, bugs, and software-related problems", price: 150, duration: 45, icon: "code" },
+  { id: "diagnostics", name: "Diagnostics", description: "Comprehensive phone health check and diagnostics", price: 0, duration: 20, icon: "search" },
+];
+
+export const FALLBACK_TIMESLOTS = [
+  { id: "ts-0800", time: "08:00" },
+  { id: "ts-0830", time: "08:30" },
+  { id: "ts-0900", time: "09:00" },
+  { id: "ts-0930", time: "09:30" },
+  { id: "ts-1000", time: "10:00" },
+  { id: "ts-1030", time: "10:30" },
+  { id: "ts-1100", time: "11:00" },
+  { id: "ts-1130", time: "11:30" },
+  { id: "ts-1200", time: "12:00" },
+  { id: "ts-1230", time: "12:30" },
+  { id: "ts-1300", time: "13:00" },
+  { id: "ts-1330", time: "13:30" },
+  { id: "ts-1400", time: "14:00" },
+  { id: "ts-1430", time: "14:30" },
+  { id: "ts-1500", time: "15:00" },
+  { id: "ts-1530", time: "15:30" },
+  { id: "ts-1600", time: "16:00" },
+  { id: "ts-1630", time: "16:30" },
+  { id: "ts-1700", time: "17:00" },
+  { id: "ts-1730", time: "17:30" },
+];
