@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { FALLBACK_SERVICES } from "@/lib/fallback-data";
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,6 +23,35 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "All required fields must be filled" }, { status: 400 });
     }
 
+    let service = await prisma.service.findUnique({
+      where: { id: serviceId },
+      select: { id: true, price: true },
+    });
+
+    if (!service) {
+      const fallbackService = FALLBACK_SERVICES.find((s) => s.id === serviceId);
+      if (!fallbackService) {
+        return NextResponse.json({ error: "Invalid service selected" }, { status: 400 });
+      }
+
+      // Ensure the selected fallback service exists so booking FK constraints do not fail.
+      service = await prisma.service.upsert({
+        where: { id: fallbackService.id },
+        update: {},
+        create: {
+          id: fallbackService.id,
+          name: fallbackService.name,
+          description: fallbackService.description,
+          price: fallbackService.price,
+          duration: fallbackService.duration,
+          icon: fallbackService.icon,
+          active: true,
+          sortOrder: 999,
+        },
+        select: { id: true, price: true },
+      });
+    }
+
     const existing = await prisma.booking.findFirst({
       where: { date, timeSlot, status: { not: "cancelled" } },
     });
@@ -41,7 +71,7 @@ export async function POST(request: NextRequest) {
         date,
         timeSlot,
         notes: notes || "",
-        totalPrice: totalPrice || 0,
+        totalPrice: Number.isFinite(totalPrice) ? totalPrice : service.price,
         status: "pending",
         paymentStatus: paymentMethod === "pay-online" ? "pending" : "pay-in-store",
       },
