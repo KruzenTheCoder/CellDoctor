@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Service {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  duration    Int       @default(60)
+  icon        String    @default("wrench")
+  active      Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+}
+
+model TimeSlot {
+  id        String   @id @default(uuid())
+  time      String
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+}
+
+model BlockedDate {
+  id     String @id @default(uuid())
+  date   String
+  reason String @default("")
+}
+
+model Booking {
+  id            String   @id @default(uuid())
+  customerName  String
+  customerEmail String
+  customerPhone String
+  phoneBrand    String
+  phoneModel    String
+  serviceId     String
+  service       Service  @relation(fields: [serviceId], references: [id])
+  date          String
+  timeSlot      String
+  notes         String   @default("")
+  status        String   @default("pending")
+  paymentStatus String   @default("unpaid")
+  paymentRef    String   @default("")
+  totalPrice    Float    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
