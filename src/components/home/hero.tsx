@@ -45,8 +45,8 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Fast, reliable repairs for all major phone brands with easy online booking,
-            secure payment, and instant WhatsApp support.
+            Fast, reliable repairs for all major phone brands with easy online booking
+            and instant WhatsApp support.
           </motion.p>
 
           {/* CTAs */}
@@ -90,7 +90,7 @@ export function HeroSection() {
           >
             {[
               { icon: Clock, label: "While You Wait" },
-              { icon: Shield, label: "Secure Payment" },
+              { icon: Shield, label: "Quality Guaranteed" },
               { icon: Zap, label: "Fast Turnaround" },
               { icon: Phone, label: "WhatsApp Support" },
             ].map((item) => (

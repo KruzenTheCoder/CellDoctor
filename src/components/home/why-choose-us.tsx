@@ -4,7 +4,7 @@ import {
   Shield,
   Clock,
   Award,
-  CreditCard,
+  CalendarCheck,
   Smartphone,
   MessageCircle,
 } from "lucide-react";
@@ -27,9 +27,9 @@ const reasons = [
     desc: "Every repair is quality-tested before we hand your device back.",
   },
   {
-    icon: CreditCard,
-    title: "Secure Online Payment",
-    desc: "Pay easily online with multiple secure payment options.",
+    icon: CalendarCheck,
+    title: "Easy Online Booking",
+    desc: "Book your repair in under 2 minutes with our simple online system.",
   },
   {
     icon: Award,

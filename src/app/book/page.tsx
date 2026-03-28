@@ -8,7 +8,6 @@ import {
   Calendar,
   Clock,
   User,
-  CreditCard,
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
@@ -16,12 +15,11 @@ import {
   Loader2,
 } from "lucide-react";
 import { FadeIn } from "@/components/motion-wrapper";
-import { PHONE_BRANDS, WHATSAPP_URL, formatPrice } from "@/lib/utils";
+import { PHONE_BRANDS, WHATSAPP_URL } from "@/lib/utils";
 
 interface Service {
   id: string;
   name: string;
-  price: number;
   duration: number;
 }
 
@@ -35,7 +33,7 @@ const steps = [
   { icon: Wrench, label: "Repair" },
   { icon: Calendar, label: "Date & Time" },
   { icon: User, label: "Details" },
-  { icon: CreditCard, label: "Confirm" },
+  { icon: CheckCircle2, label: "Confirm" },
 ];
 
 export default function BookPage() {
@@ -58,7 +56,6 @@ export default function BookPage() {
     customerEmail: "",
     customerPhone: "",
     notes: "",
-    paymentMethod: "pay-later",
   });
 
   useEffect(() => {
@@ -108,10 +105,7 @@ export default function BookPage() {
       const res = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          totalPrice: selectedService?.price || 0,
-        }),
+        body: JSON.stringify(form),
       });
       const data = await res.json();
       if (res.ok) {
@@ -186,12 +180,6 @@ export default function BookPage() {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Time</span>
                   <span className="font-medium">{form.timeSlot}</span>
-                </div>
-                <div className="flex justify-between border-t border-border pt-3">
-                  <span className="text-muted-foreground">Total</span>
-                  <span className="font-bold text-primary">
-                    {selectedService ? formatPrice(selectedService.price) : ""}
-                  </span>
                 </div>
               </div>
               <a
@@ -337,13 +325,8 @@ export default function BookPage() {
                               : "bg-secondary border-border hover:border-primary/50"
                           }`}
                         >
-                          <div>
-                            <div className="font-semibold text-sm">{service.name}</div>
-                            <div className="text-xs text-muted-foreground mt-0.5">
-                              ~{service.duration} min
-                            </div>
-                          </div>
-                          <div className="font-bold text-primary">{formatPrice(service.price)}</div>
+                          <div className="font-semibold text-sm">{service.name}</div>
+                          <div className="text-xs text-muted-foreground">~{service.duration} min</div>
                         </button>
                       ))}
                       {services.length === 0 && (
@@ -516,58 +499,6 @@ export default function BookPage() {
                           <span className="font-medium text-right max-w-[200px]">{form.notes}</span>
                         </div>
                       )}
-                      <div className="flex justify-between border-t border-border pt-3">
-                        <span className="font-semibold">Total</span>
-                        <span className="font-bold text-lg text-primary">
-                          {selectedService ? formatPrice(selectedService.price) : ""}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium mb-3">Payment Option</label>
-                      <div className="space-y-2">
-                        <button
-                          onClick={() => updateForm("paymentMethod", "pay-later")}
-                          className={`w-full flex items-center gap-3 p-4 rounded-xl border transition-all text-left ${
-                            form.paymentMethod === "pay-later"
-                              ? "bg-primary/5 border-primary"
-                              : "bg-secondary border-border hover:border-primary/50"
-                          }`}
-                        >
-                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                            form.paymentMethod === "pay-later" ? "border-primary" : "border-muted-foreground"
-                          }`}>
-                            {form.paymentMethod === "pay-later" && (
-                              <div className="w-2 h-2 rounded-full bg-primary" />
-                            )}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-sm">Pay In-Store</div>
-                            <div className="text-xs text-muted-foreground">Pay when you pick up your device</div>
-                          </div>
-                        </button>
-                        <button
-                          onClick={() => updateForm("paymentMethod", "pay-online")}
-                          className={`w-full flex items-center gap-3 p-4 rounded-xl border transition-all text-left ${
-                            form.paymentMethod === "pay-online"
-                              ? "bg-primary/5 border-primary"
-                              : "bg-secondary border-border hover:border-primary/50"
-                          }`}
-                        >
-                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                            form.paymentMethod === "pay-online" ? "border-primary" : "border-muted-foreground"
-                          }`}>
-                            {form.paymentMethod === "pay-online" && (
-                              <div className="w-2 h-2 rounded-full bg-primary" />
-                            )}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-sm">Pay Online</div>
-                            <div className="text-xs text-muted-foreground">Secure payment via PayFast</div>
-                          </div>
-                        </button>
-                      </div>
                     </div>
                   </div>
                 )}

@@ -27,11 +27,11 @@ const faqs = [
     ],
   },
   {
-    category: "Payment",
+    category: "Pricing & Warranty",
     items: [
-      { q: "What payment methods do you accept?", a: "We accept Visa, Mastercard, Instant EFT, QR-code payments, and other secure online payment options. Cash is also accepted in-store." },
-      { q: "Do I need to pay upfront?", a: "You can pay online when booking to secure your slot, or pay in-store after the repair is completed. Both options are available." },
-      { q: "Are there any hidden fees?", a: "Absolutely not. The price quoted during booking is the price you pay. If additional work is needed, we'll discuss it with you first." },
+      { q: "How much do repairs cost?", a: "Pricing depends on the device and repair type. Bring your phone in for a free diagnostic and we'll give you an accurate quote before starting any work." },
+      { q: "Do you offer a warranty on repairs?", a: "Yes, all our repairs come with a warranty. The warranty period depends on the type of repair. Ask us for details when you book." },
+      { q: "Are there any hidden fees?", a: "Absolutely not. We'll give you a clear quote upfront. If additional work is needed, we'll discuss it with you first." },
     ],
   },
   {
@@ -62,7 +62,7 @@ export default function FAQPage() {
               Frequently Asked <span className="gradient-text">Questions</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Find answers to common questions about our repair services, booking process, and payment options.
+              Find answers to common questions about our repair services and booking process.
             </p>
           </FadeIn>
         </div>

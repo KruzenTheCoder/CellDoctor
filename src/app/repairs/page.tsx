@@ -22,7 +22,6 @@ const services = [
     icon: Smartphone,
     name: "Screen Repair",
     desc: "Cracked, shattered, or unresponsive screens replaced with high-quality parts. We handle LCD and OLED displays for all major brands.",
-    price: "From R350",
     time: "30-60 min",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
@@ -31,7 +30,6 @@ const services = [
     icon: Battery,
     name: "Battery Replacement",
     desc: "Restore your phone's battery life to like-new condition. We use premium replacement batteries with optimal capacity.",
-    price: "From R250",
     time: "20-40 min",
     color: "text-green-500",
     bg: "bg-green-500/10",
@@ -40,7 +38,6 @@ const services = [
     icon: Plug,
     name: "Charging Port Repair",
     desc: "Fix loose, corroded, or damaged charging ports. Get your phone charging reliably again.",
-    price: "From R200",
     time: "30-45 min",
     color: "text-yellow-500",
     bg: "bg-yellow-500/10",
@@ -49,7 +46,6 @@ const services = [
     icon: Droplets,
     name: "Water Damage Repair",
     desc: "Expert water damage assessment, cleaning, and component-level repair. The sooner you bring it in, the better the outcome.",
-    price: "From R400",
     time: "1-3 hours",
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
@@ -58,7 +54,6 @@ const services = [
     icon: Volume2,
     name: "Speaker & Mic Repair",
     desc: "Restore clear audio with earpiece, loudspeaker, and microphone repairs. Hear and be heard again.",
-    price: "From R200",
     time: "30-45 min",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
@@ -67,7 +62,6 @@ const services = [
     icon: Camera,
     name: "Camera Repair",
     desc: "Fix blurry, cracked, or non-functioning front and rear cameras. Get back to taking sharp photos.",
-    price: "From R300",
     time: "30-60 min",
     color: "text-pink-500",
     bg: "bg-pink-500/10",
@@ -76,7 +70,6 @@ const services = [
     icon: Code,
     name: "Software Issues",
     desc: "Resolve crashes, boot loops, software bugs, OS updates, and data recovery. We handle the tricky stuff.",
-    price: "From R150",
     time: "30-60 min",
     color: "text-orange-500",
     bg: "bg-orange-500/10",
@@ -85,7 +78,6 @@ const services = [
     icon: Search,
     name: "Diagnostics",
     desc: "Not sure what's wrong? Our comprehensive diagnostic check will identify the issue and give you a clear repair quote.",
-    price: "Free",
     time: "15-20 min",
     color: "text-teal-500",
     bg: "bg-teal-500/10",
@@ -130,9 +122,6 @@ export default function RepairsPage() {
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-2">
                         <h3 className="font-bold text-xl">{service.name}</h3>
-                        <span className="text-sm font-semibold text-primary whitespace-nowrap ml-4">
-                          {service.price}
-                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                         {service.desc}

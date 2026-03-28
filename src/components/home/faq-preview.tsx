@@ -20,8 +20,8 @@ const faqs = [
     a: "Simply click 'Book a Repair', choose your phone brand and model, select the repair type, pick a date and time, and confirm. It takes less than 2 minutes.",
   },
   {
-    q: "What payment methods do you accept?",
-    a: "We accept Visa, Mastercard, Instant EFT, and other secure online payment options through our payment gateway.",
+    q: "Do you offer a warranty on repairs?",
+    a: "Yes, all our repairs come with a warranty. The warranty period depends on the type of repair. Ask us for details when you book.",
   },
 ];
 
