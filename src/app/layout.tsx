@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { MobileCTA } from "@/components/mobile-cta";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -150,6 +151,7 @@ export default function RootLayout({
           <Footer />
           <MobileCTA />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
